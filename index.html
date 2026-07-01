@@ -631,6 +631,55 @@ document.querySelectorAll('.yt').forEach(function(yt){
 
 </script>
 
+<script>
+// İçeriklerimiz dropdown linklerine tıklanınca modal aç
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.icerik-link').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var hedef = this.getAttribute('data-target');
+      document.getElementById('icerikModal')._hedef = hedef;
+      document.getElementById('icerikModal').style.display = 'flex';
+      document.getElementById('icerikHata').style.display = 'none';
+      document.getElementById('icerikEmail').value = '';
+      document.getElementById('icerikSifre').value = '';
+      setTimeout(function(){ document.getElementById('icerikEmail').focus(); }, 100);
+    });
+  });
+});
+
+function icerikGirisYap(){
+  var email = document.getElementById('icerikEmail').value.trim().toLowerCase();
+  var sifre = document.getElementById('icerikSifre').value;
+  var hedef = document.getElementById('icerikModal')._hedef;
+
+  // Kullanıcı listesi — buraya istediğiniz kadar ekleyebilirsiniz
+  var kullanicilar = [
+    { email: 'info@atomartbox.com.tr', sifre: 'AtomArt2025' }
+  ];
+
+  var gecerli = kullanicilar.some(function(k){
+    return k.email === email && k.sifre === sifre;
+  });
+
+  if(gecerli){
+    document.getElementById('icerikModal').style.display = 'none';
+    window.open(hedef, '_blank');
+  } else {
+    document.getElementById('icerikHata').style.display = 'block';
+    document.getElementById('icerikSifre').value = '';
+    document.getElementById('icerikSifre').focus();
+  }
+}
+
+// Enter tuşuyla giriş yapılabilsin
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Enter' && document.getElementById('icerikModal').style.display === 'flex'){
+    icerikGirisYap();
+  }
+});
+</script>
+
 <!-- Şifre Modalı -->
 <div id="icerikModal" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(42,38,32,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center">
   <div style="background:#fff;border-radius:24px;padding:40px 36px;max-width:380px;width:90%;box-shadow:0 24px 60px -16px rgba(42,38,32,.4);position:relative">
