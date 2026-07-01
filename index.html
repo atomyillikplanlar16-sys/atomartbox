@@ -296,6 +296,13 @@ footer{background:var(--ink);color:rgba(252,249,242,.7);padding:50px 0 36px}
     <nav>
       <ul class="nav-links" id="navLinks">
         <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li class="nav-dd dropdown" id="icerikDD">
+          <button class="nav-dd-trigger dd-trigger" aria-expanded="false" aria-haspopup="true">İçeriklerimiz <span class="caret">▾</span></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#" class="dd-item icerik-link" data-target="etkinlik.html">📅 Etkinlik Planı</a></li>
+            <li><a href="#" class="dd-item icerik-link" data-target="kit.html">🎨 Kitlerimiz</a></li>
+          </ul>
+        </li>
         <li><a href="#kitini-yarat" class="js-kit">Kitini Yarat</a></li>
 
         <li><a href="videolar.html">Eğitim Videoları</a></li>
@@ -623,5 +630,28 @@ document.querySelectorAll('.yt').forEach(function(yt){
 
 
 </script>
+
+<!-- Şifre Modalı -->
+<div id="icerikModal" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(42,38,32,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:24px;padding:40px 36px;max-width:380px;width:90%;box-shadow:0 24px 60px -16px rgba(42,38,32,.4);position:relative">
+    <button onclick="document.getElementById('icerikModal').style.display='none'" style="position:absolute;top:14px;right:16px;background:none;border:0;font-size:1.4rem;cursor:pointer;color:#aaa">✕</button>
+    <div style="text-align:center;margin-bottom:24px">
+      <div style="font-size:2.2rem;margin-bottom:8px">🔒</div>
+      <h2 style="font-family:'Fredoka',sans-serif;font-size:1.5rem;margin:0 0 6px;color:#2A2620">İçerik Girişi</h2>
+      <p style="color:#6A6256;font-size:.9rem;margin:0">Email ve şifrenizi girin</p>
+    </div>
+    <div id="icerikHata" style="display:none;background:#fff0f0;color:#c0392b;border-radius:10px;padding:10px 14px;margin-bottom:16px;font-size:.88rem;text-align:center">Email veya şifre hatalı.</div>
+    <label style="display:block;margin-bottom:14px">
+      <span style="font-size:.85rem;font-weight:700;color:#2A2620;display:block;margin-bottom:6px">Email</span>
+      <input id="icerikEmail" type="email" placeholder="ornek@email.com" style="width:100%;box-sizing:border-box;padding:12px 14px;border:2px solid #F2E2D2;border-radius:12px;font-size:.95rem;outline:none;font-family:inherit">
+    </label>
+    <label style="display:block;margin-bottom:22px">
+      <span style="font-size:.85rem;font-weight:700;color:#2A2620;display:block;margin-bottom:6px">Şifre</span>
+      <input id="icerikSifre" type="password" placeholder="••••••••" style="width:100%;box-sizing:border-box;padding:12px 14px;border:2px solid #F2E2D2;border-radius:12px;font-size:.95rem;outline:none;font-family:inherit">
+    </label>
+    <button onclick="icerikGirisYap()" style="width:100%;padding:14px;background:#E85D1B;color:#fff;border:0;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif">Giriş Yap</button>
+  </div>
+</div>
+
 </body>
 </html>
