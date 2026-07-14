@@ -52,6 +52,16 @@
   flex-shrink:0;
 }
 .aab-brand svg{width:30px;height:30px;color:var(--aab-green);flex-shrink:0;}
+.aab-brand__logo{
+  width:36px;
+  height:36px;
+  object-fit:contain;
+  flex-shrink:0;
+  display:block;
+}
+@media (max-width:960px){
+  .aab-brand__logo{width:32px;height:32px;}
+}
 .aab-brand small{
   display:block;
   font-family:"Nunito Sans",sans-serif;
