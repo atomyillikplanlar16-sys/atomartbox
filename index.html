@@ -23,7 +23,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='4' fill='%23F37121'/%3E%3Cg fill='none' stroke='%23E85D1B' stroke-width='2'%3E%3Cellipse cx='16' cy='16' rx='13' ry='6'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='6' transform='rotate(60 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='6' transform='rotate(120 16 16)'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ---------- Tokens ---------- */
 :root{
@@ -54,10 +54,10 @@ body{
 }
 img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;line-height:1.1;margin:0;font-weight:700;letter-spacing:-.01em}
+h1,h2,h3{font-family:"Poppins",system-ui,sans-serif;line-height:1.1;margin:0;font-weight:700;letter-spacing:-.01em}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 .eyebrow{
-  font-family:"Fredoka",system-ui,sans-serif;
+  font-family:"Poppins",system-ui,sans-serif;
   font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   font-size:.82rem;color:var(--green);
   display:inline-flex;align-items:center;gap:.6em;
@@ -67,7 +67,7 @@ h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;line-height:1.1;margin:0;fon
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;gap:.5em;
-  font-family:"Fredoka",system-ui,sans-serif;font-weight:600;font-size:1.02rem;
+  font-family:"Poppins",system-ui,sans-serif;font-weight:600;font-size:1.02rem;
   padding:.85em 1.5em;border-radius:999px;border:2px solid transparent;
   cursor:pointer;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease, background .18s;
 }
@@ -93,7 +93,7 @@ a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--
 /* ---------- Header ---------- */
 header{position:sticky;top:0;z-index:50;background:rgba(252,249,242,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;height:74px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:"Fredoka",system-ui,sans-serif;font-weight:700;font-size:1.32rem;color:var(--ink);letter-spacing:-.005em}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:"Poppins",system-ui,sans-serif;font-weight:700;font-size:1.32rem;color:var(--ink);letter-spacing:-.005em}
 .brand .atom{color:var(--green)}
 .brand small{display:block;font-family:"Nunito Sans";font-weight:700;font-size:.6rem;letter-spacing:.22em;color:var(--ink-soft);text-transform:uppercase;margin-top:2px}
 .brand>span{white-space:nowrap}
@@ -128,7 +128,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(252,249,242,.85);backdro
 .dropdown::after{content:"";position:absolute;top:100%;left:0;right:0;height:14px}
 .dropdown-menu{position:absolute;top:calc(100% + 12px);left:0;z-index:60;display:flex;flex-direction:column;gap:8px;min-width:260px;padding:16px;background:#fff;border:1.5px solid var(--line);border-radius:22px;box-shadow:0 14px 40px -10px rgba(42,38,32,.14);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s;list-style:none;margin:0}
 .dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu,.dropdown.open .dropdown-menu{opacity:1;visibility:visible;transform:none}
-.dd-item{display:flex;align-items:center;justify-content:flex-start;text-align:left;text-decoration:none;font-family:"Fredoka",system-ui,sans-serif;font-weight:600;font-size:.98rem;padding:.9em 1.2em;border-radius:14px;border:none;background:var(--paper-2);color:var(--ink);transition:transform .15s ease,background .15s ease,color .15s ease;cursor:pointer;gap:10px}
+.dd-item{display:flex;align-items:center;justify-content:flex-start;text-align:left;text-decoration:none;font-family:"Poppins",system-ui,sans-serif;font-weight:600;font-size:.98rem;padding:.9em 1.2em;border-radius:14px;border:none;background:var(--paper-2);color:var(--ink);transition:transform .15s ease,background .15s ease,color .15s ease;cursor:pointer;gap:10px}
 .dd-item:hover{background:var(--green);color:#fff;transform:translateX(4px)}
 .dd-item.primary{background:var(--coral);color:#fff;box-shadow:0 8px 20px -8px rgba(242,113,33,.6)}
 .dd-item.primary:hover{background:var(--green-deep);box-shadow:0 10px 26px -8px rgba(197,74,11,.7);transform:translateY(-2px)}
@@ -173,7 +173,7 @@ section{padding:90px 0}
 /* About */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .about-text p{color:var(--ink-soft);margin:0 0 18px}
-.about-text .lead{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;font-size:1.5rem;color:var(--ink);line-height:1.32;margin-bottom:24px}
+.about-text .lead{font-family:"Poppins",system-ui,sans-serif;font-weight:500;font-size:1.5rem;color:var(--ink);line-height:1.32;margin-bottom:24px}
 .about-art{position:relative;aspect-ratio:1/1;border-radius:30px;background:
   radial-gradient(circle at 30% 30%, #fff, var(--paper-2));
   display:grid;place-items:center;border:1px solid var(--line);overflow:hidden}
@@ -186,7 +186,7 @@ section{padding:90px 0}
 .gcell{overflow:hidden;border-radius:18px;position:relative;background:var(--ink);box-shadow:var(--shadow);aspect-ratio:1/1}
 .gcell img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .gcell:hover img{transform:scale(1.07)}
-.gcell .tag{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.94);color:var(--ink);font-family:"Fredoka",system-ui,sans-serif;font-weight:500;font-size:.82rem;padding:.3em .9em;border-radius:999px;letter-spacing:.01em}
+.gcell .tag{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.94);color:var(--ink);font-family:"Poppins",system-ui,sans-serif;font-weight:500;font-size:.82rem;padding:.3em .9em;border-radius:999px;letter-spacing:.01em}
 .g-wide{grid-column:span 2}
 .g-tall{grid-row:span 2}
 
@@ -201,7 +201,7 @@ section{padding:90px 0}
 .play::before{content:"";border-left:24px solid var(--coral);border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:6px}
 .video-list{list-style:none;margin:22px 0 0;padding:0}
 .video-list li{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--line);font-weight:600}
-.video-list li b{font-family:"Fredoka",system-ui,sans-serif;font-weight:700;color:var(--coral);font-size:1.15rem;min-width:1.4em}
+.video-list li b{font-family:"Poppins",system-ui,sans-serif;font-weight:700;color:var(--coral);font-size:1.15rem;min-width:1.4em}
 
 /* Kurumsal */
 #kurumsal{background:var(--green-deep);color:var(--paper)}
@@ -211,7 +211,7 @@ section{padding:90px 0}
 #kurumsal .sec-head p{color:rgba(252,249,242,.78)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:46px}
 .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:30px 26px}
-.step .num{font-family:"Fredoka",system-ui,sans-serif;font-weight:600;font-size:1rem;color:#FFE9D6;letter-spacing:.08em}
+.step .num{font-family:"Poppins",system-ui,sans-serif;font-weight:600;font-size:1rem;color:#FFE9D6;letter-spacing:.08em}
 .step h3{color:#fff;font-size:1.4rem;margin:8px 0 14px}
 .step ul{margin:0;padding-left:1.1em;color:rgba(252,249,242,.82)}
 .step ul li{margin-bottom:9px}
@@ -291,7 +291,7 @@ footer{background:var(--ink);color:rgba(252,249,242,.7);padding:50px 0 36px}
 /* ---------- Kitini Yarat overlay ---------- */
 #kitOverlay{position:fixed;inset:0;z-index:2000;background:#fff;display:flex;flex-direction:column}
 #kitOverlay[hidden]{display:none}
-#kitClose{position:fixed;top:14px;left:14px;z-index:2001;font-family:"Fredoka",system-ui,sans-serif;font-weight:600;font-size:.95rem;border:0;background:var(--coral);color:#fff;padding:.6em 1.2em;border-radius:999px;cursor:pointer;box-shadow:0 8px 20px -8px rgba(242,113,33,.8)}
+#kitClose{position:fixed;top:14px;left:14px;z-index:2001;font-family:"Poppins",system-ui,sans-serif;font-weight:600;font-size:.95rem;border:0;background:var(--coral);color:#fff;padding:.6em 1.2em;border-radius:999px;cursor:pointer;box-shadow:0 8px 20px -8px rgba(242,113,33,.8)}
 #kitClose:hover{background:var(--green-deep)}
 #kitFrame{flex:1;width:100%;height:100%;border:0;display:block}
 
@@ -303,7 +303,7 @@ footer{background:var(--ink);color:rgba(252,249,242,.7);padding:50px 0 36px}
 .yt-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:54px;border:0;border-radius:14px;background:#ff0000;cursor:pointer;box-shadow:0 8px 20px -6px rgba(0,0,0,.5);transition:background .15s,transform .15s}
 .yt-btn::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-38%,-50%);border-left:21px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent}
 .yt:hover .yt-btn{background:#e60000;transform:translate(-50%,-50%) scale(1.05)}
-.video-cap{font-family:"Fredoka",system-ui,sans-serif;font-weight:700;font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink);text-align:center;margin:0 0 16px}
+.video-cap{font-family:"Poppins",system-ui,sans-serif;font-weight:700;font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink);text-align:center;margin:0 0 16px}
 </style>
 <link rel="stylesheet" href="navbar.css">
 <script src="navbar.js" defer></script>
@@ -731,7 +731,7 @@ document.addEventListener('keydown', function(e){
     <button onclick="document.getElementById('icerikModal').style.display='none'" style="position:absolute;top:14px;right:16px;background:none;border:0;font-size:1.4rem;cursor:pointer;color:#aaa">✕</button>
     <div style="text-align:center;margin-bottom:24px">
       <div style="font-size:2.2rem;margin-bottom:8px">🔒</div>
-      <h2 style="font-family:'Fredoka',sans-serif;font-size:1.5rem;margin:0 0 6px;color:#2A2620">İçerik Girişi</h2>
+      <h2 style="font-family:'Poppins',sans-serif;font-size:1.5rem;margin:0 0 6px;color:#2A2620">İçerik Girişi</h2>
       <p style="color:#6A6256;font-size:.9rem;margin:0">Email ve şifrenizi girin</p>
     </div>
     <div id="icerikHata" style="display:none;background:#fff0f0;color:#c0392b;border-radius:10px;padding:10px 14px;margin-bottom:16px;font-size:.88rem;text-align:center">Email veya şifre hatalı.</div>
@@ -743,7 +743,7 @@ document.addEventListener('keydown', function(e){
       <span style="font-size:.85rem;font-weight:700;color:#2A2620;display:block;margin-bottom:6px">Şifre</span>
       <input id="icerikSifre" type="password" placeholder="••••••••" style="width:100%;box-sizing:border-box;padding:12px 14px;border:2px solid #F2E2D2;border-radius:12px;font-size:.95rem;outline:none;font-family:inherit">
     </label>
-    <button onclick="icerikGirisYap()" style="width:100%;padding:14px;background:#E85D1B;color:#fff;border:0;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif">Giriş Yap</button>
+    <button onclick="icerikGirisYap()" style="width:100%;padding:14px;background:#E85D1B;color:#fff;border:0;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif">Giriş Yap</button>
   </div>
 </div>
 
