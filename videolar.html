@@ -1,0 +1,1319 @@
+---
+permalink: /videolar/
+---
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATOM ART BOX — Eğitim Videoları</title>
+<meta name="description" content="ATOM ART BOX kurumsal eğitim videoları. Okullara özel sanat ve eğitim içerikleri.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Atom Art Box">
+<meta property="og:image" content="https://atomartbox.com/og-image.png">
+<meta property="og:image:alt" content="Atom Art Box — Çocuklara Sanat Eğitimi">
+<meta property="og:url" content="https://atomartbox.com">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='4' fill='%23F37121'/%3E%3Cg fill='none' stroke='%23E85D1B' stroke-width='2'%3E%3Cellipse cx='16' cy='16' rx='13' ry='6'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='6' transform='rotate(60 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='6' transform='rotate(120 16 16)'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='4' fill='%23F37121'/%3E%3Cg fill='none' stroke='%23E85D1B' stroke-width='2'%3E%3Cellipse cx='16' cy='16' rx='13' ry='6'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='6' transform='rotate(60 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='6' transform='rotate(120 16 16)'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------- Design Tokens ---------- */
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#FFF4EA;
+  --ink:#2A2620;
+  --ink-soft:#6A6256;
+  --green:#E85D1B;
+  --green-deep:#C24A0B;
+  --coral:#F37121;
+  --sun:#F59E2C;
+  --sky:#FFB46B;
+  --line:#F2E2D2;
+  --radius:22px;
+  --shadow:0 18px 40px -22px rgba(42,38,32,.45);
+  --maxw:1180px;
+}
+
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:"Nunito Sans",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-size:18px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+img { max-width:100%; display:block; }
+a { color:inherit; text-decoration:none; }
+
+h1, h2, h3 {
+  font-family:"Poppins",system-ui,sans-serif;
+  line-height:1.1;
+  margin:0;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+
+.wrap { max-width:var(--maxw); margin:0 auto; padding:0 24px; position:relative; z-index:2; }
+
+.eyebrow{
+  font-family:"Poppins",system-ui,sans-serif;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:.82rem;
+  color:var(--green);
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;
+  margin-bottom:12px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:26px;
+  height:2px;
+  background:var(--coral);
+  border-radius:2px;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  font-family:"Poppins",system-ui,sans-serif;
+  font-weight:600;
+  font-size:1.02rem;
+  padding:.85em 1.5em;
+  border-radius:999px;
+  border:2px solid transparent;
+  cursor:pointer;
+  text-decoration:none;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s;
+}
+
+.btn-primary{
+  background:var(--coral);
+  color:#fff;
+  box-shadow:0 12px 22px -12px rgba(242,96,63,.9);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 26px -12px rgba(242,96,63,.95);
+}
+
+/* ---------- Hero Section ---------- */
+.hero{
+  position:relative;
+  min-height:700px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, var(--paper-2) 0%, var(--paper) 100%);
+}
+
+.hero-img{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+
+.hero-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:16px;
+  padding:0 24px;
+  max-width:600px;
+}
+
+.hero-logo{
+  width:300px;
+  height:300px;
+  object-fit:contain;
+  margin-bottom:12px;
+}
+
+.hero h1{
+  font-size:2.5rem;
+  margin:0;
+  color:var(--ink);
+}
+
+.hero p{
+  color:var(--ink-soft);
+  font-size:1.2rem;
+  margin:0;
+}
+
+/* ---------- Partners Section ---------- */
+.section{
+  padding:60px 0;
+}
+
+.section.light{
+  background:var(--paper-2);
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:12px;
+}
+
+.partners-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:16px;
+  margin-top:32px;
+}
+
+.partner-card{
+  background:var(--paper);
+  border:2px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px 20px;
+  text-align:center;
+  transition:all .2s ease;
+  box-shadow:var(--shadow);
+  max-width: 300px;
+  cursor:pointer;
+}
+
+.partner-card:hover{
+  border-color:var(--coral);
+  transform:translateY(-3px);
+  box-shadow:0 24px 48px -22px rgba(243,113,33,.3);
+}
+
+/* ---------- Modal ---------- */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.5);
+  z-index:1000;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-content{
+  background:var(--paper);
+  border-radius:var(--radius);
+  max-width:700px;
+  width:100%;
+  max-height:80vh;
+  overflow-y:auto;
+  position:relative;
+  box-shadow:0 24px 64px rgba(0,0,0,.3);
+}
+
+.modal-header{
+  padding:32px 24px;
+  border-bottom:2px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.modal-header h2{
+  font-size:1.8rem;
+  margin:0;
+  color:var(--ink);
+}
+
+.modal-close{
+  background:none;
+  border:none;
+  font-size:2rem;
+  cursor:pointer;
+  color:var(--ink-soft);
+  transition:color .2s ease;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-close:hover{
+  color:var(--ink);
+}
+
+.modal-body{
+  padding:24px;
+}
+
+.video-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.video-item{
+  padding:16px 20px;
+  margin-bottom:12px;
+  background:var(--paper-2);
+  border-radius:12px;
+  border:2px solid transparent;
+  transition:all .2s ease;
+}
+
+.video-item:hover{
+  border-color:var(--coral);
+  background:var(--paper);
+  transform:translateX(4px);
+}
+
+.video-item a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  text-decoration:none;
+  color:var(--ink);
+}
+
+.video-item-title{
+  font-family:"Poppins",system-ui,sans-serif;
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--ink);
+  transition:color .2s ease;
+}
+
+.video-item:hover .video-item-title{
+  color:var(--coral);
+}
+
+.video-item-arrow{
+  font-size:1.5rem;
+  color:var(--green);
+}
+
+.empty-videos{
+  text-align:center;
+  padding:48px 24px;
+  color:var(--ink-soft);
+}
+
+.empty-videos h3{
+  font-size:1.5rem;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+
+.partner-card h3{
+  font-size:1rem;
+  color:var(--ink);
+  line-height:1.3;
+}
+
+/* ---------- Videos Grid ---------- */
+.videos-intro{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:28px;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+.videos-intro h2{
+  margin:0;
+}
+
+.filter-tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.filter-tabs button{
+  font-family:"Poppins",system-ui,sans-serif;
+  font-weight:600;
+  font-size:.95rem;
+  padding:.6em 1.2em;
+  border:2px solid var(--line);
+  border-radius:999px;
+  background:var(--paper);
+  color:var(--ink);
+  cursor:pointer;
+  transition:all .2s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  white-space:nowrap;
+}
+
+.filter-tabs button:hover,
+.filter-tabs button.active{
+  border-color:var(--coral);
+  background:var(--coral);
+  color:white;
+  transform:translateY(-2px);
+}
+
+.videos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:24px;
+}
+
+.video-card{
+  background:var(--paper);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:all .2s ease;
+  border:2px solid transparent;
+}
+
+.video-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--coral);
+  box-shadow:0 24px 48px -22px rgba(243,113,33,.3);
+}
+
+.video-thumb{
+  width:100%;
+  aspect-ratio:16/9;
+  background:linear-gradient(135deg, var(--sun) 0%, var(--coral) 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:3rem;
+  position:relative;
+  overflow:hidden;
+  color:rgba(255,255,255,.7);
+}
+
+.video-thumb::after{
+  content:"▶";
+  position:absolute;
+  font-size:2.5rem;
+  opacity:0.6;
+  transition:all .3s ease;
+}
+
+.video-card:hover .video-thumb::after{
+  opacity:1;
+  transform:scale(1.1);
+}
+
+.video-info{
+  padding:20px 24px;
+}
+
+.video-label{
+  font-family:"Poppins",system-ui,sans-serif;
+  font-weight:600;
+  font-size:.8rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:8px;
+  display:block;
+}
+
+.video-card h3{
+  font-size:1.15rem;
+  margin-bottom:8px;
+  color:var(--ink);
+}
+
+.video-desc{
+  color:var(--ink-soft);
+  font-size:.95rem;
+  margin-bottom:16px;
+  line-height:1.5;
+}
+
+.video-play{
+  display:inline-block;
+  background:var(--coral);
+  color:white;
+  padding:.7em 1.4em;
+  border-radius:999px;
+  font-family:"Poppins",system-ui,sans-serif;
+  font-weight:600;
+  font-size:.95rem;
+  border:none;
+  cursor:pointer;
+  transition:all .2s ease;
+  width:100%;
+  text-align:center;
+}
+
+.video-play:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 22px -12px rgba(243,113,33,.6);
+}
+
+/* ---------- Empty State ---------- */
+.empty{
+  text-align:center;
+  padding:48px 24px;
+  color:var(--ink-soft);
+}
+
+.empty h3{
+  font-size:1.5rem;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:768px){
+  .hero{
+    min-height:500px;
+  }
+
+  .hero h1 { 
+    font-size:1.8rem;
+  }
+  
+  .hero p { 
+    font-size:1rem; 
+  }
+
+  .section h2 { font-size:1.5rem; }
+  
+  .videos-intro{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .filter-tabs{
+    width:100%;
+  }
+
+  .filter-tabs button{
+    font-size:.9rem;
+    padding:.5em 1em;
+  }
+
+  .videos-grid{
+    grid-template-columns:1fr;
+  }
+
+  .partners-grid{
+    grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+
+.modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.modal-back {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: .9rem;
+  background: var(--paper-2);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  padding: .4em 1em;
+  cursor: pointer;
+  color: var(--ink);
+  transition: all .2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.modal-back:hover {
+  border-color: var(--coral);
+  background: var(--coral);
+  color: white;
+}
+
+.modal-breadcrumb {
+  padding: 10px 24px 0;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: .85rem;
+  color: var(--ink-soft);
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.modal-breadcrumb span {
+  color: var(--coral);
+  font-weight: 600;
+}
+
+.modal-breadcrumb .bc-sep {
+  color: var(--line);
+}
+
+/* Level buttons */
+.level-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.level-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 20px;
+  background: var(--paper-2);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all .2s ease;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+.level-btn:hover {
+  border-color: var(--coral);
+  background: var(--paper);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -16px rgba(243,113,33,.3);
+}
+
+.level-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.level-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Class buttons */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.class-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px 12px;
+  background: var(--paper-2);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all .2s ease;
+  font-family: "Poppins", system-ui, sans-serif;
+  text-align: center;
+}
+
+.class-btn:hover {
+  border-color: var(--coral);
+  background: var(--paper);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -12px rgba(243,113,33,.3);
+}
+
+.class-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.class-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+/* Kategori butonları (Tanıtım / Eğitim / Katalog) */
+.category-btn {
+  min-height: 120px;
+}
+
+.cat-count {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  background: var(--coral);
+  color: #fff;
+  border-radius: 999px;
+  padding: .2em .7em;
+  margin-top: 4px;
+}
+
+/* ---------- Password Step ---------- */
+.password-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.password-hint {
+  color: var(--ink-soft);
+  font-size: .98rem;
+  margin: 0;
+  max-width: 380px;
+}
+
+.password-input {
+  width: 100%;
+  max-width: 280px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.05rem;
+  padding: .85em 1.1em;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  outline: none;
+  transition: border-color .2s ease;
+  text-align: center;
+}
+
+.password-input:focus {
+  border-color: var(--coral);
+}
+
+.password-submit {
+  margin-top: 4px;
+}
+
+.password-error {
+  color: var(--green-deep);
+  font-size: .9rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ---------- Video Player Modal ---------- */
+.player-modal-content {
+  background: #000;
+  border-radius: var(--radius);
+  max-width: 860px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,.6);
+}
+
+.player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--ink);
+}
+
+.player-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 60px);
+}
+
+.player-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.player-wrap iframe,
+.player-wrap video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Video listesi — oynat butonu stili */
+.video-item-play {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: .9rem;
+  padding: .45em 1.1em;
+  cursor: pointer;
+  transition: all .2s ease;
+  flex-shrink: 0;
+}
+
+.video-item-play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px -8px rgba(243,113,33,.7);
+}
+
+.video-item a {
+  flex: 1;
+  min-width: 0;
+}
+
+.video-item-title {
+  white-space: normal;
+  word-break: break-word;
+}
+
+
+
+</style>
+<link rel="stylesheet" href="navbar.css">
+<script src="navbar.js" defer></script>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <img src="logoaab.png" alt="ATOM ART BOX" class="hero-logo">
+      <h1 style="font-size: 64px;">Eğitim Videoları</h1>
+      <p style="font-size: 32px;">ATOM ART BOX tarafından hazırlanmış kurumsal eğitim içerikleri</p>
+    </div>
+  </div>
+</section>
+
+<!-- Partners -->
+<section class="section light">
+  <div class="wrap">
+    <div class="eyebrow">Kurumsal Ortaklarımız</div>
+    <h2>Kurumunuzu Seçiniz</h2>
+    <div class="partners-grid">
+      <div class="partner-card" data-institution="akbank-sanat"><h3>AKBANK SANAT</h3></div>
+      <div class="partner-card" data-institution="altinsehir"><h3>ALTINŞEHİR OKULLARI</h3></div>
+      <div class="partner-card" data-institution="bursa-bb"><h3>BURSA BÜYÜKŞEHİR BELEDİYESİ</h3></div>
+      <div class="partner-card" data-institution="emine-ornek"><h3>EMİNE ÖRNEK EĞİTİM KURUMLARI</h3></div>
+      <div class="partner-card" data-institution="fkm"><h3>FKM OKULLARI</h3></div>
+      <div class="partner-card" data-institution="nilufer"><h3>NİLÜFER BELEDİYESİ</h3></div>
+      <div class="partner-card" data-institution="tan-balat"><h3>TAN BALAT OKULLARI</h3></div>
+      <div class="partner-card" data-institution="tubitak"><h3>TÜBİTAK</h3></div>
+      <div class="partner-card" data-institution="istek"><h3>İSTEK EĞİTİM KURUMLARI</h3></div>
+      <div class="partner-card" data-institution="bilfen"><h3>BİLFEN EĞİTİM KURUMLARI</h3></div>
+      <div class="partner-card" data-institution="bahcesehir"><h3>BAHÇEŞEHİR KOLEJİ</h3></div>
+      <div class="partner-card" data-institution="oncu"><h3>ÖNCÜ EĞİTİM KURUMLARI</h3></div>
+      <div class="partner-card" data-institution="ted"><h3>TED ATAKENT KOLEJİ</h3></div>
+    </div>
+  </div>
+</section>
+<!-- Modal -->
+<div class="modal" id="videoModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <button class="modal-back" id="backBtn" style="display:none;">← Geri</button>
+        <h2 id="modalTitle">Kurumun Videoları</h2>
+      </div>
+      <button class="modal-close" id="closeModal">&times;</button>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="modal-breadcrumb" id="breadcrumb"></div>
+
+    <div class="modal-body">
+
+      <!-- Adım 0: Şifre girişi -->
+      <div id="stepPassword">
+        <form id="passwordForm" class="password-form">
+          <p class="password-hint">İçeriklerinize erişmek için lütfen şifrenizi girin.</p>
+          <input type="password" id="passwordInput" class="password-input" placeholder="Şifre" autocomplete="off">
+          <button type="submit" class="btn btn-primary password-submit">Giriş Yap</button>
+          <p class="password-error" id="passwordError" style="display:none;">Şifre hatalı, lütfen tekrar deneyin.</p>
+        </form>
+      </div>
+
+      <!-- Adım 1: Seviye seçimi (Anaokulu / İlkokul) - dinamik -->
+      <div id="stepLevel" style="display:none;">
+        <div class="level-grid" id="levelGrid"></div>
+      </div>
+
+      <!-- Adım 2: Sınıf seçimi -->
+      <div id="stepClass" style="display:none;">
+        <div class="class-grid" id="classGrid"></div>
+      </div>
+
+      <!-- Adım 3: Video listesi -->
+      <div id="stepVideos" style="display:none;">
+        <ul class="video-list" id="videoList"></ul>
+        <div class="empty-videos" id="emptyVideos">
+          <h3>Henüz video eklenmemiş</h3>
+          <p>Bu kategoriye ait videoları yakında ekleyeceğiz.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Video Oynatıcı Modal -->
+<div class="modal" id="playerModal">
+  <div class="player-modal-content">
+    <div class="player-header">
+      <span class="player-title" id="playerTitle"></span>
+      <button class="modal-close" id="closePlayer">&times;</button>
+    </div>
+    <div class="player-wrap">
+      <!-- Google Drive için iframe -->
+      <iframe id="drivePlayer" src="" allowfullscreen frameborder="0" style="display:none;"></iframe>
+      <!-- Dropbox / doğrudan MP4 için video tag -->
+      <video id="directPlayer" controls style="display:none;">
+        <source id="videoSource" src="" type="video/mp4">
+        Tarayıcınız video oynatmayı desteklemiyor.
+      </video>
+      <!-- Hata mesajı -->
+      <div id="playerError" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; background:#111; color:#fff; display:none; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:24px; text-align:center;">
+        <span style="font-size:3rem;">⚠️</span>
+        <p style="font-family:'Poppins',sans-serif; font-size:1.2rem; margin:0;">Video yüklenemedi.</p>
+        <p style="font-size:.9rem; color:#aaa; margin:0;">Google Drive paylaşım izni "Bağlantıya sahip olan herkes" olarak ayarlanmamış olabilir.</p>
+        <a id="playerErrorLink" href="#" target="_blank" rel="noopener" style="background:#E85D1B; color:#fff; padding:.6em 1.4em; border-radius:999px; font-family:'Poppins',sans-serif; font-weight:600; text-decoration:none;">Drive'da Aç ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+// ============================================================
+// VERİ YAPISI
+// Akış: Kurum → Anaokulu/İlkokul → Tanıtım/Eğitim/Katalog → Videolar
+//
+// Video eklemek için ilgili kurum > levels > anaokulu/ilkokul >
+// categories > tanitim/egitim/katalog > videos dizisine ekleyin:
+// Örnek: { title: 'Video Başlığı', url: 'https://youtube.com/...' }
+// ============================================================
+
+// Yardımcı: Boş kategori yapısı oluşturur
+function emptyCategories() {
+  return {
+    tanitim:  { label: 'Tanıtım Videoları', icon: '🎬', videos: [] },
+    egitim:   { label: 'Eğitim Videoları',  icon: '📖', videos: [] },
+    katalog:  { label: 'Katalog',           icon: '📋', videos: [] },
+  };
+}
+
+const institutionData = {
+  'akbank-sanat': {
+    name: 'AKBANK SANAT',
+    password: 'akbank2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'altinsehir': {
+    name: 'ALTINŞEHİR OKULLARI',
+    password: 'altinsehir2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'bursa-bb': {
+    name: 'BURSA BÜYÜKŞEHİR BELEDİYESİ',
+    password: 'bursabb2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'emine-ornek': {
+    name: 'EMİNE ÖRNEK EĞİTİM KURUMLARI',
+    password: 'emineornek2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'fkm': {
+    name: 'FKM OKULLARI',
+    password: 'fkm2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'nilufer': {
+    name: 'NİLÜFER BELEDİYESİ',
+    password: 'nilufer2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'tan-balat': {
+    name: 'TAN BALAT OKULLARI',
+    password: 'tanbalat2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'tubitak': {
+    name: 'TÜBİTAK',
+    password: 'tubitak2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'istek': {
+    name: 'İSTEK EĞİTİM KURUMLARI',
+    password: 'istek2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'bilfen': {
+    name: 'BİLFEN EĞİTİM KURUMLARI',
+    password: 'bilfen2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'bahcesehir': {
+    name: 'BAHÇEŞEHİR KOLEJİ',
+    password: 'bahcesehir2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'oncu': {
+    name: 'ÖNCÜ EĞİTİM KURUMLARI',
+    password: 'oncu2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: {
+        tanitim: { label: 'Tanıtım Videoları', icon: '🎬', videos: [
+          { title: 'Tanıtım Videosu', url: 'https://drive.google.com/file/d/1s8Du4qlin3kOeTQvohdTfziaTOIBQgYh/view?usp=drive_link' }
+        ]},
+        egitim:  { label: 'Eğitim Videoları', icon: '📖', videos: [
+          { title: 'Eğitim Videosu 1', url: 'https://drive.google.com/file/d/1VjOeGwB7gV_AuSJ-ND-GcGLs7qCKxOOv/view?usp=drive_link' },
+          { title: 'Eğitim Videosu 2', url: 'https://drive.google.com/file/d/1gDIYchY99erIkhLJpUaoo1BE8-CGfz8Y/view?usp=drive_link' },
+          { title: 'Eğitim Videosu 3', url: 'https://drive.google.com/file/d/1CfASoCiXbF9Gys1_OJPYmd7BTmTDIqVv/view?usp=drive_link' },
+          { title: 'Eğitim Videosu 4', url: 'https://drive.google.com/file/d/1fijtvtjh7g0wusW8EgOh5dMyAT-lULBX/view?usp=drive_link' },
+          { title: 'Eğitim Videosu 5', url: 'https://drive.google.com/file/d/1ADlk8c5VSge6ulcEjbIm0X9MJ3bv-EoA/view?usp=drive_link' },
+        ]},
+        katalog: { label: 'Katalog', icon: '📋', videos: [
+          { title: 'Katalog',         url: 'https://drive.google.com/file/d/1lwN4S5WOa5b52DFk2FVAotjtn7sXjRp2/view?usp=drive_link' },
+          { title: 'Teslimat',        url: 'https://drive.google.com/file/d/1aFpJnOCz5aGPq2-G8Z6HhKzI1QBikuLF/view?usp=drive_link' },
+          { title: 'Süreç Yönetimi', url: 'https://drive.google.com/file/d/1TnzeBL1MlOuT3vEzh12GvJMflIVS3hZB/view?usp=drive_link' },
+        ]},
+      }},
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+  'ted': {
+    name: 'TED ATAKENT KOLEJİ',
+    password: 'ted2026',
+    levels: {
+      anaokulu: { label: 'Anaokulu', icon: '🎨', categories: emptyCategories() },
+      ilkokul:  { label: 'İlkokul',  icon: '📚', categories: emptyCategories() },
+    }
+  },
+};
+
+// ============================================================
+// MODAL DURUM YÖNETİMİ  (şifre → level → category → videos)
+// ============================================================
+const modal       = document.getElementById('videoModal');
+const closeBtn    = document.getElementById('closeModal');
+const backBtn     = document.getElementById('backBtn');
+const modalTitle  = document.getElementById('modalTitle');
+const breadcrumb  = document.getElementById('breadcrumb');
+const stepPassword = document.getElementById('stepPassword');
+const stepLevel   = document.getElementById('stepLevel');
+const stepClass   = document.getElementById('stepClass');   // kategori adımı
+const stepVideos  = document.getElementById('stepVideos');
+const passwordForm  = document.getElementById('passwordForm');
+const passwordInput = document.getElementById('passwordInput');
+const passwordError = document.getElementById('passwordError');
+const classGrid   = document.getElementById('classGrid');   // kategori grid
+const videoList   = document.getElementById('videoList');
+const emptyVideos = document.getElementById('emptyVideos');
+
+let state = { institution: null, level: null, category: null, unlocked: false };
+
+function showStep(step) {
+  stepPassword.style.display = step === 'password' ? 'block' : 'none';
+  stepLevel .style.display = step === 'level'    ? 'block' : 'none';
+  stepClass .style.display = step === 'category' ? 'block' : 'none';
+  stepVideos.style.display = step === 'videos'   ? 'block' : 'none';
+  backBtn   .style.display = (step !== 'password' && step !== 'level') ? 'inline-flex' : 'none';
+  updateBreadcrumb();
+}
+
+function updateBreadcrumb() {
+  const parts = [];
+  if (state.level) {
+    const lvl = institutionData[state.institution].levels[state.level];
+    parts.push(`<span>${lvl.label}</span>`);
+  }
+  if (state.category) {
+    const cat = institutionData[state.institution].levels[state.level].categories[state.category];
+    parts.push(`<span>${cat.label}</span>`);
+  }
+  breadcrumb.innerHTML = parts.join('<span class="bc-sep"> › </span>');
+}
+
+function openModal(institutionId) {
+  const inst = institutionData[institutionId];
+  if (!inst) return;
+  state = { institution: institutionId, level: null, category: null, unlocked: false };
+  modalTitle.textContent = inst.name;
+  passwordInput.value = '';
+  passwordError.style.display = 'none';
+  showStep('password');
+  modal.classList.add('active');
+  setTimeout(() => passwordInput.focus(), 100);
+}
+
+passwordForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const inst = institutionData[state.institution];
+  if (passwordInput.value === inst.password) {
+    state.unlocked = true;
+    passwordError.style.display = 'none';
+    renderLevelStep();
+    showStep('level');
+  } else {
+    passwordError.style.display = 'block';
+    passwordInput.value = '';
+    passwordInput.focus();
+  }
+});
+
+// Adım 1: Anaokulu / İlkokul butonlarını dinamik oluştur
+function renderLevelStep() {
+  const levelGrid = document.getElementById('levelGrid');
+  levelGrid.innerHTML = '';
+  const levels = institutionData[state.institution].levels;
+  Object.entries(levels).forEach(([key, lvl]) => {
+    const btn = document.createElement('button');
+    btn.className = 'level-btn';
+    btn.dataset.level = key;
+    btn.innerHTML = `<span class="level-icon">${lvl.icon}</span><span class="level-label">${lvl.label}</span>`;
+    btn.addEventListener('click', () => {
+      state.level = key;
+      renderCategoryStep();
+      showStep('category');
+    });
+    levelGrid.appendChild(btn);
+  });
+}
+
+// Adım 2: Tanıtım / Eğitim / Katalog
+function renderCategoryStep() {
+  classGrid.innerHTML = '';
+  const cats = institutionData[state.institution].levels[state.level].categories;
+  Object.entries(cats).forEach(([key, cat]) => {
+    const btn = document.createElement('button');
+    btn.className = 'class-btn category-btn';
+    btn.dataset.category = key;
+    const count = cat.videos.length;
+    btn.innerHTML = `
+      <span class="class-icon">${cat.icon}</span>
+      <span class="class-label">${cat.label}</span>
+      ${count > 0 ? `<span class="cat-count">${count} video</span>` : ''}
+    `;
+    btn.addEventListener('click', () => {
+      state.category = key;
+      renderVideoStep();
+      showStep('videos');
+    });
+    classGrid.appendChild(btn);
+  });
+}
+
+// Adım 3: Video listesi
+// URL'yi oynatılabilir formata çevir
+function resolveVideoUrl(url) {
+  // Google Drive: /file/d/ID/view → /file/d/ID/preview
+  const driveMatch = url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
+  if (driveMatch) {
+    return { type: 'drive', src: `https://drive.google.com/file/d/${driveMatch[1]}/preview` };
+  }
+  // Dropbox: ?dl=0 → ?raw=1
+  if (url.includes('dropbox.com')) {
+    const src = url.replace(/[?&]dl=0/, '').replace(/[?&]dl=1/, '') + (url.includes('?') ? '&raw=1' : '?raw=1');
+    return { type: 'direct', src };
+  }
+  // Doğrudan .mp4 linki
+  return { type: 'direct', src: url };
+}
+
+function openPlayer(title, url) {
+  const resolved     = resolveVideoUrl(url);
+  const playerModal  = document.getElementById('playerModal');
+  const drivePlayer  = document.getElementById('drivePlayer');
+  const directPlayer = document.getElementById('directPlayer');
+  const videoSource  = document.getElementById('videoSource');
+  const playerError  = document.getElementById('playerError');
+  const playerErrorLink = document.getElementById('playerErrorLink');
+  document.getElementById('playerTitle').textContent = title;
+
+  // Hepsini gizle
+  drivePlayer.style.display  = 'none';
+  directPlayer.style.display = 'none';
+  playerError.style.display  = 'none';
+
+  if (resolved.type === 'drive') {
+    drivePlayer.src = resolved.src;
+    drivePlayer.style.display = 'block';
+    playerErrorLink.href = url;
+    // iframe yüklenemezse 5 sn sonra hata göster
+    drivePlayer.onload = null;
+    const errTimer = setTimeout(() => {
+      try {
+        // Cross-origin kontrol — erişilebiliyorsa sorun yok
+        const doc = drivePlayer.contentDocument || drivePlayer.contentWindow.document;
+        if (!doc || doc.title === '' || doc.body.innerHTML === '') {
+          drivePlayer.style.display = 'none';
+          playerError.style.display = 'flex';
+        }
+      } catch(e) {
+        // Cross-origin hatası = Drive yüklendi (normal)
+      }
+    }, 5000);
+    drivePlayer.onerror = () => {
+      clearTimeout(errTimer);
+      drivePlayer.style.display = 'none';
+      playerError.style.display = 'flex';
+    };
+  } else {
+    videoSource.src = resolved.src;
+    directPlayer.load();
+    directPlayer.style.display = 'block';
+    directPlayer.onerror = () => {
+      directPlayer.style.display = 'none';
+      playerError.style.display  = 'flex';
+    };
+  }
+  playerModal.classList.add('active');
+}
+
+function closePlayer() {
+  const playerModal  = document.getElementById('playerModal');
+  const drivePlayer  = document.getElementById('drivePlayer');
+  const directPlayer = document.getElementById('directPlayer');
+  playerModal.classList.remove('active');
+  drivePlayer.src = '';
+  directPlayer.pause();
+  document.getElementById('videoSource').src = '';
+}
+
+document.getElementById('closePlayer').addEventListener('click', closePlayer);
+document.getElementById('playerModal').addEventListener('click', function(e) {
+  if (e.target === this) closePlayer();
+});
+
+function renderVideoStep() {
+  const cat = institutionData[state.institution].levels[state.level].categories[state.category];
+  videoList.innerHTML = '';
+  if (cat.videos.length > 0) {
+    cat.videos.forEach(video => {
+      const li = document.createElement('li');
+      li.className = 'video-item';
+      li.innerHTML = `
+        <a href="${video.url}" target="_blank" rel="noopener noreferrer">
+          <span class="video-item-title">${video.title}</span>
+        </a>
+        <button class="video-item-play" data-url="${video.url}" data-title="${video.title}">▶ Oynat</button>
+      `;
+      li.querySelector('.video-item-play').addEventListener('click', (e) => {
+        e.stopPropagation();
+        openPlayer(video.title, video.url);
+      });
+      videoList.appendChild(li);
+    });
+    emptyVideos.style.display = 'none';
+  } else {
+    emptyVideos.style.display = 'block';
+  }
+}
+
+function goBack() {
+  if (state.category) {
+    state.category = null;
+    renderCategoryStep();
+    showStep('category');
+  } else if (state.level) {
+    state.level = null;
+    renderLevelStep();
+    showStep('level');
+  } else if (state.unlocked) {
+    state.unlocked = false;
+    passwordInput.value = '';
+    passwordError.style.display = 'none';
+    showStep('password');
+  }
+}
+
+
+// Partner kartları — şifre ekranı üzerinden aç
+document.querySelectorAll('.partner-card').forEach(card => {
+  card.addEventListener('click', function () {
+    openModal(this.dataset.institution);
+  });
+});
+
+// Geri butonu
+backBtn.addEventListener('click', goBack);
+
+// Kapat
+closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('active'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('active'); });
+
+});
+</script>
+</body>
+</html>
