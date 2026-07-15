@@ -1,2 +1,27 @@
+# GitHub Pages - Jekyll Configuration
+# HTML uzantılarını gizlemek için
+
+# Site ayarları
+title: Atomart Box
+description: Atomart Box Official Website
+url: https://atomartbox.com.tr
+baseurl: ""
+
+# Permalink ayarları - HTML uzantılarını gizle
+permalink: /:basename/
+
+# Jekyll eklentileri
 plugins:
   - jekyll-redirect-from
+
+# Build ayarları
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Collections
+collections:
+  posts:
+    output: true
