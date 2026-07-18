@@ -9,6 +9,14 @@
   // Bar zaten eklendiyse tekrar ekleme
   if (document.querySelector('.aab-nav')) return;
 
+  /* Eski .html adresleriyle gelenleri temiz adrese yönlendir.
+     (GitHub Pages her iki adresi de sunar; bu blok sadece görünümü temizler.) */
+  if (/\.html$/i.test(location.pathname)) {
+    var cleanPath = location.pathname.replace(/\.html$/i, '').replace(/\/index$/i, '/');
+    location.replace(cleanPath + location.search + location.hash);
+    return;
+  }
+
   /* index.html ve kit.html'deki eski (elle yazılmış) barı kaldır.
      Sayfanın kendi script'i bu script'ten ÖNCE çalıştığı için hata oluşmaz. */
   var legacy = document.getElementById('navLinks');
@@ -23,28 +31,28 @@
   nav.className = 'aab-nav';
   nav.innerHTML =
     '<div class="aab-nav__inner">' +
-      '<a class="aab-brand" href="index.html" aria-label="ATOM ART BOX ana sayfa">' +
+      '<a class="aab-brand" href="/" aria-label="ATOM ART BOX ana sayfa">' +
         LOGO +
         '<span>ATOM ART BOX<small>Doğa · Sanat · Eğitim</small></span>' +
       '</a>' +
       '<nav>' +
         '<ul class="aab-links" id="aabLinks">' +
-          '<li><a href="index.html" data-page="index.html">Ana Sayfa</a></li>' +
-          '<li><a href="hakkimizda.html" data-page="hakkimizda.html">Hakkımızda</a></li>' +
+          '<li><a href="/" data-page="index">Ana Sayfa</a></li>' +
+          '<li><a href="/hakkimizda" data-page="hakkimizda">Hakkımızda</a></li>' +
           '<li class="aab-dd" id="aabDD">' +
             '<button class="aab-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">İçeriklerimiz <span aria-hidden="true">▾</span></button>' +
             '<ul class="aab-dd__menu">' +
-              '<li><a href="etkinlik.html" data-page="etkinlik.html">📅 Etkinlik Planı</a></li>' +
-              '<li><a href="kit.html" data-page="kit.html">🎨 Kitlerimiz</a></li>' +
+              '<li><a href="/etkinlik" data-page="etkinlik">📅 Etkinlik Planı</a></li>' +
+              '<li><a href="/kit" data-page="kit">🎨 Kitlerimiz</a></li>' +
             '</ul>' +
           '</li>' +
-          '<li><a href="kity.html" data-page="kity.html">Kitini Yarat</a></li>' +
-          '<li><a href="videolar.html" data-page="videolar.html">Eğitim Videoları</a></li>' +
-          '<li><a href="index.html#iletisim">İletişim</a></li>' +
+          '<li><a href="/kity" data-page="kity">Kitini Yarat</a></li>' +
+          '<li><a href="/videolar" data-page="videolar">Eğitim Videoları</a></li>' +
+          '<li><a href="/#iletisim">İletişim</a></li>' +
         '</ul>' +
       '</nav>' +
       '<div class="aab-actions">' +
-        '<a href="index.html#kurumsal" class="aab-cta">Kurumsal Çözümler</a>' +
+        '<a href="/#kurumsal" class="aab-cta">Kurumsal Çözümler</a>' +
         '<button class="aab-burger" id="aabBurger" type="button" aria-label="Menüyü aç" aria-expanded="false">' +
           '<span></span><span></span><span></span>' +
         '</button>' +
@@ -62,8 +70,9 @@
   window.addEventListener('resize', syncPadding);
   window.addEventListener('load', syncPadding);
 
-  /* --- Bulunduğun sayfayı işaretle --- */
-  var file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  /* --- Bulunduğun sayfayı işaretle (uzantısız adreslerle uyumlu) --- */
+  var cleaned = location.pathname.replace(/\/+$/, '').replace(/\.html$/i, '').toLowerCase();
+  var file = cleaned.substring(cleaned.lastIndexOf('/') + 1) || 'index';
   var current = nav.querySelector('[data-page="' + file + '"]');
   if (current) {
     current.classList.add('is-active');

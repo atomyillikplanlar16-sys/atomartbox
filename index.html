@@ -319,7 +319,7 @@ footer{background:var(--ink);color:rgba(252,249,242,.7);padding:50px 0 36px}
     </a>
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="/hakkimizda">Hakkımızda</a></li>
         <li class="nav-dd dropdown" id="icerikDD">
           <button class="nav-dd-trigger dd-trigger" aria-expanded="false" aria-haspopup="true">İçeriklerimiz <span class="caret">▾</span></button>
           <ul class="dropdown-menu" role="menu">
@@ -329,7 +329,7 @@ footer{background:var(--ink);color:rgba(252,249,242,.7);padding:50px 0 36px}
         </li>
         <li><a href="#kitini-yarat" class="js-kit">Kitini Yarat</a></li>
 
-        <li><a href="videolar.html">Eğitim Videoları</a></li>
+        <li><a href="/videolar">Eğitim Videoları</a></li>
         <li><a href="#iletisim">İletişim</a></li>
       </ul>
     </nav>
@@ -523,7 +523,7 @@ footer{background:var(--ink);color:rgba(252,249,242,.7);padding:50px 0 36px}
         <span>ATOM ART BOX<small>Doğa · Sanat · Eğitim</small></span>
       </a>
       <nav style="display:flex;gap:24px;flex-wrap:wrap">
-        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="/hakkimizda">Hakkımızda</a>
         <a href="#kitini-yarat" class="js-kit">Kitini Yarat</a>
         <a href="#videolar">Eğitim Videoları</a>
         <a href="#iletisim">İletişim</a>
@@ -627,7 +627,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
   // direct open - kity.html'i yeni sekmede aç
   document.querySelectorAll('.js-kit').forEach(function(a){a.addEventListener('click',function(e){
     e.preventDefault();
-    window.open('kity.html','_blank');
+    window.open('/kity','_blank');
   });});
 
   // app overlay controls
