@@ -2,6 +2,75 @@
 permalink: /kit/
 ---
 <meta charset="utf-8">
+<!-- === Şifre koruması (Etkinlik Planı / Kitlerimiz) === -->
+<style>html.aab-kilitli body{visibility:hidden!important}</style>
+<script>
+(function () {
+  // ==== ŞİFREYİ BURADAN DEĞİŞTİRİN (etkinlik.html ile aynı olmalı) ====
+  var SIFRE = "atomart";
+  // ===================================================================
+  var ANAHTAR = "aab_icerik_ok";
+
+  // Bu oturumda daha önce doğru şifre girildiyse hiçbir şey yapma
+  try { if (sessionStorage.getItem(ANAHTAR) === "1") return; } catch (e) {}
+
+  // İçeriği hemen gizle (şifre ekranı gelene kadar görünmesin)
+  document.documentElement.classList.add("aab-kilitli");
+
+  function kur() {
+    if (document.getElementById("aab-sifre-katman")) return;
+
+    var katman = document.createElement("div");
+    katman.id = "aab-sifre-katman";
+    katman.style.cssText =
+      "position:fixed;inset:0;z-index:2147483647;display:flex;" +
+      "align-items:center;justify-content:center;padding:24px;background:#FCF9F2;" +
+      "font-family:'Nunito Sans',system-ui,-apple-system,sans-serif;";
+
+    katman.innerHTML =
+      '<div style="width:100%;max-width:380px;background:#fff;border:1px solid #F2E2D2;' +
+      'border-radius:18px;padding:32px 28px;box-shadow:0 18px 50px -28px rgba(60,45,20,.45);text-align:center;">' +
+        '<div style="font-family:\'Poppins\',system-ui,sans-serif;font-weight:700;font-size:1.15rem;color:#2A2620;">ATOM ART BOX</div>' +
+        '<h1 style="font-family:\'Poppins\',system-ui,sans-serif;font-size:1.05rem;color:#2A2620;margin:18px 0 6px;">Bu bölüm şifre korumalı</h1>' +
+        '<p style="font-size:.9rem;color:#6A6256;margin:0 0 18px;">Devam etmek için şifreyi girin.</p>' +
+        '<input id="aab-sifre-input" type="password" autocomplete="off" placeholder="Şifre" ' +
+          'style="width:100%;padding:12px 14px;border:1px solid #F2E2D2;border-radius:10px;font-size:1rem;outline:none;box-sizing:border-box;margin-bottom:10px;" />' +
+        '<div id="aab-sifre-hata" style="display:none;color:#D9544D;font-size:.85rem;margin-bottom:10px;">Şifre yanlış, tekrar deneyin.</div>' +
+        '<button id="aab-sifre-btn" type="button" ' +
+          'style="width:100%;padding:12px 14px;border:0;border-radius:999px;background:#F37121;color:#fff;font-weight:700;font-size:1rem;cursor:pointer;">Giriş yap</button>' +
+      '</div>';
+
+    document.documentElement.appendChild(katman);
+
+    var input = document.getElementById("aab-sifre-input");
+    var btn = document.getElementById("aab-sifre-btn");
+    var hata = document.getElementById("aab-sifre-hata");
+
+    function dene() {
+      if (input.value === SIFRE) {
+        try { sessionStorage.setItem(ANAHTAR, "1"); } catch (e) {}
+        katman.remove();
+        document.documentElement.classList.remove("aab-kilitli");
+      } else {
+        hata.style.display = "block";
+        input.value = "";
+        input.focus();
+      }
+    }
+
+    btn.addEventListener("click", dene);
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") dene(); });
+    input.focus();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", kur);
+  } else {
+    kur();
+  }
+})();
+</script>
+<!-- === /Şifre koruması === -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ATOM ART BOX · Kitlerimiz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
