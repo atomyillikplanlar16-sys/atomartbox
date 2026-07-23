@@ -9,9 +9,25 @@
   // Bar zaten eklendiyse tekrar ekleme
   if (document.querySelector('.aab-nav')) return;
 
+  /* Dosya (file://) olarak mı açıldı, yoksa bir sunucuda mı?
+     Bilgisayarda çift tıklayınca protokol "file:" olur; hosting'de "http/https". */
+  var IS_FILE = location.protocol === 'file:';
+
+  /* Sayfa slug'ını doğru adrese çevirir.
+     - Offline (file://): "hakkimizda.html" gibi göreli, .html'li adres  → çift tıklayınca açılır
+     - Sunucuda        : "/hakkimizda" gibi temiz adres                → GitHub Pages ile uyumlu */
+  function pageHref(slug, hash) {
+    hash = hash || '';
+    if (IS_FILE) {
+      return (slug === 'index' ? 'index.html' : slug + '.html') + hash;
+    }
+    return (slug === 'index' ? '/' : '/' + slug) + hash;
+  }
+
   /* Eski .html adresleriyle gelenleri temiz adrese yönlendir.
-     (GitHub Pages her iki adresi de sunar; bu blok sadece görünümü temizler.) */
-  if (/\.html$/i.test(location.pathname)) {
+     SADECE sunucuda çalışır. Offline'da .html'i silmek klasör listesine düşürür,
+     o yüzden file:// açılışında bu blok atlanır. */
+  if (!IS_FILE && /\.html$/i.test(location.pathname)) {
     var cleanPath = location.pathname.replace(/\.html$/i, '').replace(/\/index$/i, '/');
     location.replace(cleanPath + location.search + location.hash);
     return;
@@ -31,28 +47,28 @@
   nav.className = 'aab-nav';
   nav.innerHTML =
     '<div class="aab-nav__inner">' +
-      '<a class="aab-brand" href="/" aria-label="ATOM ART BOX ana sayfa">' +
+      '<a class="aab-brand" href="' + pageHref('index') + '" aria-label="ATOM ART BOX ana sayfa">' +
         LOGO +
         '<span>ATOM ART BOX<small>Doğa · Sanat · Eğitim</small></span>' +
       '</a>' +
       '<nav>' +
         '<ul class="aab-links" id="aabLinks">' +
-          '<li><a href="/" data-page="index">Ana Sayfa</a></li>' +
-          '<li><a href="/hakkimizda" data-page="hakkimizda">Hakkımızda</a></li>' +
+          '<li><a href="' + pageHref('index') + '" data-page="index">Ana Sayfa</a></li>' +
+          '<li><a href="' + pageHref('hakkimizda') + '" data-page="hakkimizda">Hakkımızda</a></li>' +
           '<li class="aab-dd" id="aabDD">' +
             '<button class="aab-dd-btn" type="button" aria-expanded="false" aria-haspopup="true">İçeriklerimiz <span aria-hidden="true">▾</span></button>' +
             '<ul class="aab-dd__menu">' +
-              '<li><a href="/etkinlik" data-page="etkinlik">📅 Etkinlik Planı</a></li>' +
-              '<li><a href="/kit" data-page="kit">🎨 Kitlerimiz</a></li>' +
+              '<li><a href="' + pageHref('etkinlik') + '" data-page="etkinlik">📅 Etkinlik Planı</a></li>' +
+              '<li><a href="' + pageHref('kit') + '" data-page="kit">🎨 Kitlerimiz</a></li>' +
             '</ul>' +
           '</li>' +
-          '<li><a href="/kity" data-page="kity">Kitini Yarat</a></li>' +
-          '<li><a href="/videolar" data-page="videolar">Eğitim Videoları</a></li>' +
-          '<li><a href="/#iletisim">İletişim</a></li>' +
+          '<li><a href="' + pageHref('kity') + '" data-page="kity">Kitini Yarat</a></li>' +
+          '<li><a href="' + pageHref('videolar') + '" data-page="videolar">Eğitim Videoları</a></li>' +
+          '<li><a href="' + pageHref('index', '#iletisim') + '">İletişim</a></li>' +
         '</ul>' +
       '</nav>' +
       '<div class="aab-actions">' +
-        '<a href="/#kurumsal" class="aab-cta">Kurumsal Çözümler</a>' +
+        '<a href="' + pageHref('index', '#kurumsal') + '" class="aab-cta">Kurumsal Çözümler</a>' +
         '<button class="aab-burger" id="aabBurger" type="button" aria-label="Menüyü aç" aria-expanded="false">' +
           '<span></span><span></span><span></span>' +
         '</button>' +
@@ -60,6 +76,24 @@
     '</div>';
 
   document.body.insertBefore(nav, document.body.firstChild);
+
+  /* --- Sayfa içindeki elle yazılmış iç bağlantıları da protokole göre düzelt ---
+     Örn. index.html'deki href="/hakkimizda" veya hakkimizda.html'deki href="/"
+     offline'da kırılırdı; burada doğru adrese çevriliyor. */
+  var SLUGS = ['index', 'hakkimizda', 'etkinlik', 'kit', 'kity', 'videolar'];
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+    var raw = a.getAttribute('href');
+    if (!raw) return;
+    if (/^(https?:|mailto:|tel:|data:|javascript:)/i.test(raw)) return; // dış/özel linkler
+    if (raw.charAt(0) === '#') return;                                   // aynı sayfa çapası
+    var hash = '';
+    var hi = raw.indexOf('#');
+    if (hi !== -1) { hash = raw.slice(hi); raw = raw.slice(0, hi); }
+    var slug = raw.replace(/\.html$/i, '').replace(/^\//, '').replace(/\/$/, '').toLowerCase();
+    if (slug === '') slug = 'index';
+    if (SLUGS.indexOf(slug) === -1) return; // tanımadığımız yerel dosyalara dokunma
+    a.setAttribute('href', pageHref(slug, hash));
+  });
 
   /* --- Bar sabit (fixed) olduğu için içeriği aşağı it --- */
   var basePad = parseFloat(getComputedStyle(document.body).paddingTop) || 0;
